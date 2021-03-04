@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <title>Add Product</title>
+    <style>
+        input[type=text],
+        textarea {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li style="float:right"><a class="active" href="/logout">Logout</a></li>
+    </ul>
+    <div style="border: 1px solid black;padding: 20px;width: 320px;margin: auto;">
+        <h3>Add Product</h3>
+        <form action="/addProduct" method="post" enctype="multipart/form-data">
+            <p>Name</p>
+            <input type="text" name="Name" />
+            <br>
+            <p>SKU</p>
+            <input type="text" name="SKU" />
+            <br>
+            <p>Price</p>
+            <input type="text" name="Price" />
+            <br>
+            <p>Category</p>
+            <input type="text" name="Category" />
+            <br>
+            <p>Quantity</p>
+            <input type="text" name="qty" />
+            <br>
+            <p>Product Image</p>
+            <input type="file" name="image" />
+            <input type="submit" name="submit" value="Submit" />
+        </form>
+    </div>
+
+</body>
+
+</html>

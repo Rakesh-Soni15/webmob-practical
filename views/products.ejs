@@ -1,0 +1,161 @@
+<html>
+
+<head>
+    <title>Products</title>
+    <style>
+        input[type=text],
+        textarea {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        #products {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #products td,
+        #products th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #products tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #products tr:hover {
+            background-color: #ddd;
+        }
+
+        #products th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .update {
+            background-color: #008CBA;
+        }
+
+        .delete {
+            background-color: #f44336;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li style="float:right"><a class="active" href="/logout">Logout</a></li>
+    </ul>
+    <div>
+        <a style="margin: 20px; font-family: Arial, Helvetica, sans-serif;" class="button update"
+            href="/product/add">Add Product</a>
+    </div>
+    <div style="border: 1px solid black; margin: 20px;">
+        <table id="products">
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>SKU</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+            <% for(var i=0; i<products.length; i++) { %>
+                <tr>
+                    <td>
+                        <%=i+1 %>
+                    </td>
+                    <td>
+                        <%= products[i].Name %>
+                    </td>
+                    <td>
+                        <%= products[i].SKU %>
+                    </td>
+                    <td>
+                        <%= products[i].Price %>
+                    </td>
+                    <td>
+                        <%= products[i].Category %>
+                    </td>
+                    <td>
+                        <%= products[i].qty %>
+                    </td>
+                    <td><img src="http://localhost:7000/<%= products[i].image %>" height="75"
+                            alt="<%= products[i].Name %>" /></td>
+                    <td>
+                        <a class="button update" href="/product/update/<%=products[i]._id%>">Update</a>
+                        <!-- <a class="button delete" href="/delete/<%=products[i]._id%>"">Delete</a> -->
+                    </td>
+                </tr>
+                <% } %>
+        </table>
+    </div>
+</body>
+
+</html>
